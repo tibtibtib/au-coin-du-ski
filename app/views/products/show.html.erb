@@ -1,0 +1,10 @@
+<h1><%= @product.name %></h1>
+  <div>
+    <%= link_to "Back to all products", products_path %>
+  </div>
+  <div>
+    <p>Catégorie  <%= @product.category %></p>
+    <p>Description du produit  <%= @product.description %></p>
+    <p>Prix par jour  <%= @product.price %></p>
+    <p>Adresse de dispo du produit  <%= @product.address %></p>      
+  </div>

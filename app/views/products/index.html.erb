@@ -1,0 +1,13 @@
+
+    <h1>Tous nos produits</h1>
+    <p>L'intégralité de nos produits en location</p>
+    <div>
+    <% @products.each do |product| %>
+            <h2><%= product.name %></h2>
+             <p><%= product.price %></p>
+          <%= link_to "voir ce produit", product_path(product) %>
+    <% end %>
+  </div>
+    <div><%= link_to "Ajouter un produit", new_product_path, class: "btn btn-primary btn-lg" %>
+    	  </div>
+
