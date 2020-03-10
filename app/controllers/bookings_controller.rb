@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :create, :destroy]
+  before_action :set_booking, only: [:show, :destroy]
   before_action :set_product, only: [:create]
   def show
+    @product = @booking.product
     @seller = @booking.product.user
     @buyer = @booking.user
-    @time = @booking.product.end_date - @booking.product.start_date
+    @time = @booking.end_date - @booking.start_date
     authorize @booking
   end
 
@@ -13,13 +14,12 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(params_booking)
     authorize @booking
-    @bookig.product = @product
+    @booking.product = @product
     @booking.user = current_user
 
     if @booking.save
       redirect_to booking_path(@booking)
     else
-      raise
       render 'products/show'
     end
   end

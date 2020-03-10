@@ -5,11 +5,11 @@
 <p>Catégorie :<%= @product.category %></p>
 <p>Début de la Réservation : <%= @booking.start_date %></p>
 <p>Fin de la Réservation : <%= @booking.end_date %></p>
-<p>Prix total : <%= @time * @product.price %></p>
+<p>Prix total : <%= @time.to_i * @product.price %> €</p>
 
 <h3>Coordonnées du loueur</h3>
 <p><%= @seller.first_name %> <%= @seller.last_name %></p>
-<p>@product.address</p>
+<p><%= @product.address %></p>
 
 <%= link_to "Confirmer", products_path %>
 <%= link_to "Annuler",
