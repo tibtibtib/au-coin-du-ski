@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
   def home
-    @naked_navbar = true
   end
 
   def concept

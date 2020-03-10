@@ -1,8 +1,6 @@
 import "bootstrap";
 import { toggleTransparentNav } from "../plugin/navbar";
 
-// toggleTransparentNav();
-
 document.addEventListener("DOMContentLoaded", function (event) {
   var element = document.querySelector("body");
   var height = element.offsetHeight;
@@ -10,3 +8,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
       document.getElementById("footer").classList.add('stikybottom');
   }
 }, false);
+
+toggleTransparentNav();
