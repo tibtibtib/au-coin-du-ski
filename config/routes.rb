@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :products, only: [:index, :show, :new, :create, :destroy]
+  get 'pages/concept', to: 'pages#concept'
+  get 'pages/my_bookings', to: 'pages#my_bookings'
+  get 'pages/my_products', to: 'pages#my_products'
 end
