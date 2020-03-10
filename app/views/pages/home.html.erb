@@ -1,9 +1,44 @@
+<div id="qazwsxedcrfv"></div> 
+<!-- DO NOT REMOVE THE PHANTOM DIV - Gaëtan -->
+<div class="pos-f-t">
+
+</div>
 
 <div class="banner" style="background-image: url('<%= image_path 'sebastian-staines-xZIFEPtRsRI-unsplash.jpg' %>');">
+  <div class="pos-f-t">
+    <nav class="navbar navbar-transparent">
+      <div>
+        <div class ="container">
+         <i class="fas fa-skiing"></i><%= link_to "     AU COIN DU SKI", root_path, class:"text-decoration-none text-reset font-weight-bolder ml-4" %> 
+           <div class="ml-3"><%= link_to "CONCEPT", pages_concept_path, class:"text-decoration-none text-reset "  %> </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-secondary">AJOUTER UNE ANNONCE</button>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div>
+          <% if user_signed_in? %>
+            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle" , data: { toggle: "dropdown" }, aria: { haspopup: true, expanded: false, labelledby: "navbarDropdown" }, default_image: "anonymousprofile.png" %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "MON COMPTE", root_path, class: "dropdown-item" %>
+              <%= link_to "MES PRODUITS", pages_my_products_path, class: "dropdown-item" %>
+              <%= link_to "MES RESERVATIONS", pages_my_bookings_path, class: "dropdown-item" %>
+              <%= link_to "SE DECONNECTER", destroy_user_session_path(current_user), method: :delete, class: "dropdown-item" %>
+            </div>
+            </div>
+          <% else %>
+            <div><%= link_to "SE CONNECTER", new_user_session_path, class:"text-decoration-none text-white" %> </div>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </div>
   <div class = "container">
     <div class="banner-content"><h2> Louez votre matériel de ski à d'autres particuliers! </h2> </div>
   </div>
 </div>
+
+
 <div class="container">
   <div class="row">
     <% Product.all.each do |product| %>
