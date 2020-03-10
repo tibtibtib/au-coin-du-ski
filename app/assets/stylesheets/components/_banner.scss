@@ -1,7 +1,8 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  position: relative;
+  height: 600px;
   h1 {
     margin: 0;
     color: white;
@@ -15,4 +16,12 @@
     opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
+}
+
+.banner-content {
+  display: block;
+  position: absolute;
+  width: 500px;
+  z-index: 1;
+  top : 220px;
 }
