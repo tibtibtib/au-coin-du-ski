@@ -1,10 +1,11 @@
 <h1>Create a new product</h1>
 
-      <%= simple_form_for @product do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.input :price %>
-        <%= f.input :category %>
-        <%= f.input :address %>
-        <%= f.button :submit, class: 'btn btn-primary' %>
-      <% end %>
+<%= simple_form_for @product do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :category %>
+  <%= f.input :address %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
