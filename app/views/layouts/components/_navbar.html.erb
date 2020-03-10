@@ -1,10 +1,10 @@
 <!-- DO ALL THE LINK_TO -->
-<div class="pos-f-t">
-  <nav class="navbar navbar-light bg-light" id="navbar">
+  <nav class="navbar navbar-light <%= 'bg-light' unless @naked_navbar %> <%= 'naked-navbar' if @naked_navbar %>" id="navbar">
     <div>
       <div class ="container">
-       <i class="fas fa-skiing text-primary"></i><%= link_to "     AU COIN DU SKI", root_path, class:"text-decoration-none text-primary font-weight-bolder ml-4" %> 
-         <div class="ml-3"><%= link_to "CONCEPT", pages_concept_path, class:"text-decoration-none text-reset "  %> </div>
+       <i class="fas fa-skiing text-primary"></i>
+       <%= link_to "AU COIN DU SKI", root_path, class:"text-decoration-none text-primary font-weight-bolder ml-4" %>
+        <div class="ml-3"><%= link_to "CONCEPT", pages_concept_path, class:"text-decoration-none text-reset "  %> </div>
       </div>
     </div>
     <div>
@@ -26,4 +26,3 @@
       </div>
     </div>
   </nav>
-</div>
