@@ -1,0 +1,10 @@
+.products-display {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 16px;
+}
+
+.product-display-card {
+  background-color: white;
+  padding: 20px;
+}
