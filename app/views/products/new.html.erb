@@ -10,6 +10,7 @@
       <%= f.input :price,
                   label: 'Prix par jour'%>
       <%= f.input :category,
+                  collection: Product::CATEGORIES,
                   label: 'Catégorie'%>
       <%= f.input :address,
                   label: 'Adresse'%>
@@ -19,3 +20,4 @@
     <% end %>
   </div>
 </div>
+
