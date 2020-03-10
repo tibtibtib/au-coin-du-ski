@@ -6,5 +6,8 @@
     <p>Catégorie  <%= @product.category %></p>
     <p>Description du produit  <%= @product.description %></p>
     <p>Prix par jour  <%= @product.price %></p>
-    <p>Adresse de dispo du produit  <%= @product.address %></p>      
+    <p>Adresse de dispo du produit  <%= @product.address %></p>
   </div>
+
+
+<%= link_to 'supprimer ce produit', product_path(@product), method: :delete %>
