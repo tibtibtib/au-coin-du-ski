@@ -10,6 +10,8 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <%#= cl_image_tag("anonymousprofile",
+      width: 400, height: 300, crop: :fill) %>
     <%= render 'layouts/components/navbar' %>
     <%= yield %>
     <p class="notice"><%= notice %></p>
