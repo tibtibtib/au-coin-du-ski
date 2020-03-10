@@ -9,5 +9,6 @@
     <p>Adresse de dispo du produit  <%= @product.address %></p>
   </div>
 
+<%= render 'bookings/form', product: @product, booking: @booking %>
 
 <%= link_to 'supprimer ce produit', product_path(@product), method: :delete %>

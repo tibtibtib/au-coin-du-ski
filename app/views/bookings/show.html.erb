@@ -1,12 +1,18 @@
 <h2>Votre Réservation</h2>
 
 <h3><%= @booking.product.name %></h3>
-<p>Description :<%= @booking.product.description %></p>
-<p>Catégorie :<%= @booking.product.category %></p>
+<p>Description :<%= @product.description %></p>
+<p>Catégorie :<%= @product.category %></p>
 <p>Début de la Réservation : <%= @booking.start_date %></p>
 <p>Fin de la Réservation : <%= @booking.end_date %></p>
-<p>Prix total : <%= @time * @booking.product.price %></p>
+<p>Prix total : <%= @time * @product.price %></p>
 
 <h3>Coordonnées du loueur</h3>
 <p><%= @seller.first_name %> <%= @seller.last_name %></p>
-<p>@booking.product.address</p>
+<p>@product.address</p>
+
+<%= link_to "Confirmer", products_path %>
+<%= link_to "Annuler",
+    booking_path(@booking),
+    method: :delete,
+    data: { confirm: "Êtes-vous sûr?" } %>

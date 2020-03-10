@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :destroy]
 
   def index
     @products = policy_scope(Product)
   end
 
   def show
-  	@product = Product.find(params[:id])
+    @booking = Booking.new
     authorize @product
   end
 
@@ -26,7 +27,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     authorize @product
     redirect_to(products_path)
@@ -38,4 +38,7 @@ private
     params.require(:product).permit(:name, :description, :category, :address, :price)
   end
 
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
