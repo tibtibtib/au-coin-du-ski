@@ -1,1 +1,57 @@
-<h1> Ceci est la page concept </h1>
+<div id="qazwsxedcrfv"></div> 
+<!-- DO NOT REMOVE THE PHANTOM DIV - Gaëtan -->
+<div class="pos-f-t">
+
+</div>
+
+<div class="banner-concept" style="background-image: url('<%= image_path 'kipras-streimikis-39-0VXkvcbw-unsplash.jpg' %>');">
+  <div class="pos-f-t">
+    <nav class="navbar navbar-transparent">
+      <div>
+        <div class ="container">
+         <i class="fas fa-skiing text-primary"></i><%= link_to "     AU COIN DU SKI", root_path, class:"text-decoration-none text-primary font-weight-bolder ml-4" %> 
+           <div class="ml-3"><%= link_to "CONCEPT", pages_concept_path, class:"text-decoration-none text-reset "  %> </div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-secondary">AJOUTER UNE ANNONCE</button>
+        <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div>
+          <% if user_signed_in? %>
+            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle" , data: { toggle: "dropdown" }, aria: { haspopup: true, expanded: false, labelledby: "navbarDropdown" }, default_image: "anonymousprofile.png" %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "MON COMPTE", root_path, class: "dropdown-item" %>
+              <%= link_to "MES PRODUITS", pages_my_products_path, class: "dropdown-item" %>
+              <%= link_to "MES RESERVATIONS", pages_my_bookings_path, class: "dropdown-item" %>
+              <%= link_to "SE DECONNECTER", destroy_user_session_path(current_user), method: :delete, class: "dropdown-item" %>
+            </div>
+            </div>
+          <% else %>
+            <div><%= link_to "SE CONNECTER", new_user_session_path, class:"text-decoration-none text-white" %> </div>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class = "container">
+    <div class="banner-content-concept"><h2> Votre matériel de ski dort à la cave 50 semaines par an ?</h2> <br><h2 class="text-primary"> Louez le! </h2></br></div>
+  </div>
+</div>
+<div> 
+  <div class = "blank-container">
+  	<h3> Vous partez skier, et souhaitez louer votre matériel à tarif très réduit? </h3>
+  	<p> Sur le coin du ski, des particuliers mettent en location leur matériel de ski. Equipez vous pour votre semaine annuelle à des tarifs souvent plus intéressants que ceux des pros! Recherchez votre matériel par catégorie, date de disponibilité, et adresse du loueur.</p> <%= link_to "Réservez, et à vous la montagne!", products_path, class:"text-decoration-none text-reset " %>
+  	<br></br>
+  	<h3> Vous avez des skis, et souhaitez mettre en location votre équipement pour d'autres particuliers? </h3>
+  	<p>  Postez votre annonce (1 par équipement) en indiquant votre tarif de location par jour, les dates de disponibilité, et l'endroit auquel vous le mettez à dispo. </p> <%= link_to "Gérez en ligne vos produits", new_product_path, class:"text-decoration-none text-reset " %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
