@@ -1,12 +1,21 @@
-<h1> Voici la liste de tes produits</h1>
-
-<% @my_products.each do |product| %>
-  <h1><%= product.name %></h1>
-  <div>
-    <p>Catégorie  <%= product.category %></p>
-    <p>Description du produit  <%= product.description %></p>
-    <p>Prix par jour  <%= product.price %></p>
-    <p>Adresse de dispo du produit  <%= product.address %></p>
-    <%= link_to 'supprimer ce produit', product_path(product), method: :delete %>
-  </div>
-<% end %>
+<div class="container">
+	<h1 class="p-2 pb-4">Mes produits</h1>
+	
+	<% @my_products.each do |product| %>
+		  <div class="card-trip">
+		    <%= cl_image_tag product.photos[0].key %>
+		    <div class="card-trip-infos">
+		      <div>
+		        <h2><%= product.name %></h2>
+		        <p><%= product.description %></p>
+		      	<div class="d-flex">
+		        	<p><%= product.address %></p>
+		        	<i class="fas fa-map-marker-alt ml-1"></i>
+		      	</div>
+		      </div>
+		      	<h2 class="card-trip-pricing"><%= product.price%>$ /jour</h2>
+		      <%= cl_image_tag current_user.avatar.key, class: "card-trip-user avatar-bordered", default_image: "anonymousprofile.png" %>
+		    </div>
+		  </div>
+	<% end %>
+</div>

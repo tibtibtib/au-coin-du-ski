@@ -13,9 +13,11 @@
     <%#= cl_image_tag("anonymousprofile",
       width: 400, height: 300, crop: :fill) %>
 
-      <%= render 'layouts/components/navbar' %>
+    <%= render 'layouts/components/navbar' %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render 'layouts/components/footer' %>

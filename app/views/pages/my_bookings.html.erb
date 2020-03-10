@@ -1,21 +1,37 @@
-<h1> Voici la liste de tes réservations</h1>
+<div class="container">
+  <h1 class="p-2 pb-4">Mes réservations</h1>
 
-<p> <%= @my_bookings.count %> réservations </p>
-
-<% @my_bookings.each do |booking| %>
-  <h3><%= booking.product.name %></h3>
-  <p>Description :<%= booking.product.description %></p>
-  <p>Catégorie :<%= booking.product.category %></p>
-  <p>Début de la Réservation : <%= booking.start_date %></p>
-  <p>Fin de la Réservation : <%= booking.end_date %></p>
-  <p>Prix total : <%=(booking.end_date - booking.start_date).to_i * booking.product.price %> €</p>
-
-  <h3>Coordonnées du loueur</h3>
-  <p><%= booking.product.user.first_name %> <%= booking.product.user.last_name %></p>
-  <p><%= booking.product.address %></p>
-  <%= link_to "Annuler cette réservation",
-    booking_path(booking),
-    method: :delete,
-    data: { confirm: "Êtes-vous sûr?" } %>
-
-<% end %>
+  <p> <%= @my_bookings.count %> réservations trouvée(s)</p>
+  <% @my_bookings.each do |booking| %>
+    <div class="card-trip">
+      <%= cl_image_tag booking.product.photos[0].key %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= booking.product.name %></h2>
+          <div class="d-flex">
+            <p><%= booking.product.address %></p>
+            <i class="fas fa-map-marker-alt ml-1"></i>
+          </div>
+        </div>
+        <div>
+          <%= booking.start_date %>
+          <i class="fas fa-arrow-alt-circle-right"></i>
+          <%= booking.end_date %>
+        </div>
+        <div>
+          <h2 class="card-trip-pricing"><%= booking.product.price%>$ /jour</h2>
+        </div>
+      </div>
+      <div class="dropup avatar-dropup">
+        <%= cl_image_tag booking.product.user.avatar.key, class: "card-trip-user avatar-bordered dropdown-toggle", data: { toggle: "dropdown" }, aria: { haspopup: true, expanded: false, labelledby: "navbarDropdown" }, default_image: "anonymousprofile.png" %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <p class="dropdown-item"><%= "#{booking.product.user.first_name} #{booking.product.user.last_name}" %></p>
+          <p class="dropdown-item"><%= booking.product.user.email %></p>
+          <% if booking.product.user.cell_phone %>
+            <p class="dropdown-item"><%= booking.product.user.cell_phone %></p>
+          <% end %>
+        </div>
+      </div>
+    </div> 
+  <% end %>
+</div>
