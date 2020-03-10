@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: [:show, :destroy]
+  
+  get 'pages/concept', to: 'pages#concept'
+  get 'pages/my_bookings', to: 'pages#my_bookings'
+  get 'pages/my_products', to: 'pages#my_products'
 end
