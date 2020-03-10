@@ -58,7 +58,7 @@ product1 = Product.create({
   category: 'skis',
   user: user1
 })
-#product1.photos[0].attach(io: product1_photo, filename: 'ski_rossignol.jpeg', content_type: 'image/jpeg')
+product1.photos[0].attach(io: product1_photo, filename: 'ski_rossignol.jpeg', content_type: 'image/jpeg')
 
 product2 = Product.create({
   name: 'Skis Salomon 160',
@@ -68,7 +68,7 @@ product2 = Product.create({
   category: 'skis',
   user: user1
 })
-#product2.photos[0].attach(io: product2_photo, filename: 'ski_salomon.jpeg', content_type: 'image/jpeg')
+product2.photos[0].attach(io: product2_photo, filename: 'ski_salomon.jpeg', content_type: 'image/jpeg')
 
 
 product3 = Product.create({
@@ -79,7 +79,7 @@ product3 = Product.create({
   category: 'snowboard',
   user: user2
 })
-#product3.photos[0].attach(io: product3_photo, filename: 'snow_rossignol.jpeg', content_type: 'image/jpeg')
+product3.photos[0].attach(io: product3_photo, filename: 'snow_rossignol.jpeg', content_type: 'image/jpeg')
 
 puts "product generated!"
 
