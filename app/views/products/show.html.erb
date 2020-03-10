@@ -9,12 +9,12 @@
       <div>
         <p><strong>Description</strong>  <%= @product.description %></p>
         <p><strong>Adresse du produit</strong>  <%= @product.address %></p>
+        <%= render 'bookings/form', product: @product, booking: @booking %>
         <%= link_to "Retour aux produits", products_path %>
       </div>
     </div>
     <div class="product-display-card">
-      <%= cl_image_tag @product.photos[0].key, alt: "photo" %>
-      <%= render 'bookings/form', product: @product, booking: @booking %>
+      <%= cl_image_tag @product.photos[0].key, alt: "photo", crop: :fill %>
     </div>
 
   </div>
