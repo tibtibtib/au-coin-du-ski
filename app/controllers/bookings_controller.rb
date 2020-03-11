@@ -31,6 +31,14 @@ class BookingsController < ApplicationController
     redirect_to products_path
   end
 
+  def confirm
+    @booking = Booking.find(params[:id])
+    @booking.confirm
+    authorize @booking
+
+    redirect_to pages_my_bookings_path
+  end
+
   private
 
   def params_booking

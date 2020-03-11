@@ -11,7 +11,7 @@
 <p><%= @seller.first_name %> <%= @seller.last_name %></p>
 <p><%= @product.address %></p>
 
-<%= link_to "Confirmer", products_path %>
+<%= link_to "Confirmer", confirm_booking_path %>
 <%= link_to "Annuler",
     booking_path(@booking),
     method: :delete,
