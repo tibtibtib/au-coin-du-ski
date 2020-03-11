@@ -3,7 +3,7 @@ const onScrollNavBar = () => {
 		let banner = document.getElementById("banner");
 		const navbar = document.getElementById("navbar");
 		if (banner) {
-			if ((banner.offsetHeight - navbar.offsetHeight) < window.scrollY) {
+			if (174 < window.scrollY) {
 				navbar.style.backgroundColor = "white";
 			} else {
 				navbar.style.backgroundColor = "rgba(0,0,0,0)";
