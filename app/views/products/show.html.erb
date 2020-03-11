@@ -10,6 +10,10 @@
         <p> <%= @product.description %> </p>
         <p><strong>Adresse du produit</strong> </p>
         <p> <%= @product.address %> </p>
+        <% if current_user == @product.user %>
+          <%= link_to "éditer", edit_product_path %>
+          <%= link_to "supprimer", product_path, method: :delete %>
+        <% end %>
         <div class="vendor-avatar">
           <p><strong>Le loueur</strong></p>
           <%= cl_image_tag @product.user.avatar.key, class: 'avatar-large',alt: @product.user.first_name %>
