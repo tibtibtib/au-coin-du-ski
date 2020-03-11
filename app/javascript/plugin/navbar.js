@@ -10,7 +10,13 @@ const onScrollNavBar = () => {
 			}
 		} else {
 			banner = document.getElementById("banner-concept");
-			if (banner)
+			if (banner) {
+				if (163 < window.scrollY) {
+					navbar.style.backgroundColor = "white";
+				} else {
+					navbar.style.backgroundColor = "rgba(0,0,0,0)";
+				}
+			}
 		}
 	});
 };
