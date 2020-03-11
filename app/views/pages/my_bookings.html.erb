@@ -11,7 +11,7 @@
             <p>Statut : <%= booking.status %></p>
           </div>
           <div>
-            <h2><%= booking.product.name %></h2>
+            <h2><%= booking.product.name.capitalize %></h2>
             <div class="d-flex">
               <p><%= booking.product.address %></p>
               <i class="fas fa-map-marker-alt ml-1"></i>
@@ -30,7 +30,7 @@
           <div class="button-booking">
             <a href="mailto:<%= booking.product.user.email %>"><%= booking.product.user.email %></a>
             <% if booking.product.user.cell_phone %>
-              <p>booking.product.user.cell_phone</p>
+              <p><%=booking.product.user.cell_phone%></p>
             <% end %>
           </div>
         </div>
