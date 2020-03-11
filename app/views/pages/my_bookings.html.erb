@@ -25,7 +25,7 @@
         </div>
         <div class="booking-dollar-user">
           <div class="card-trip-pricing">
-            <p><%= (booking.product.price * (booking.end_date - booking.start_date)).to_i%> $</p>
+            <p><%= (booking.product.price * (booking.end_date - booking.start_date)).to_i%> €</p>
           </div>
           <div class="button-booking">
             <a href="mailto:<%= booking.product.user.email %>"><%= booking.product.user.email %></a>

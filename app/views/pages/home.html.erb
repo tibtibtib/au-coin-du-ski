@@ -22,7 +22,7 @@
                     <i class="fas fa-map-marker-alt ml-1"></i>
                   </div>
               </div>
-              <h2 class="card-product-pricing"><%= product.price%>$ /jour</h2>
+              <h2 class="card-product-pricing"><%= product.price%>€ /jour</h2>
               <%= cl_image_tag product.user.avatar.key, class: "card-product-user avatar-bordered", default_image: "anonymousprofile.png" %>
             </div>
            <%= link_to "", product_path(product), class: 'card-link' %>
