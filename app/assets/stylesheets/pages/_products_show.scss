@@ -10,10 +10,14 @@
 }
 
 .vendor-avatar{
-  position: absolute;
-  top: 1rem ;
-  right: 1rem ;
   text-align: center;
+}
+
+.vendor-avatar p{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+
 }
 
 .half-window{
