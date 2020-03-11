@@ -3,18 +3,29 @@
 	
 	<% @my_products.each do |product| %>
 		  <div class="card-trip">
-		    <%= cl_image_tag product.photos[0].key %>
-		    <div class="card-trip-infos">
-		      <div>
-		        <h2><%= product.name %></h2>
-		        <p><%= product.description %></p>
-		      	<div class="d-flex">
-		        	<p><%= product.address %></p>
-		        	<i class="fas fa-map-marker-alt ml-1"></i>
-		      	</div>
-		      </div>
-		      	<h2 class="card-trip-pricing"><%= product.price%>$ /jour</h2>
-		      <%= cl_image_tag current_user.avatar.key, class: "card-trip-user avatar-bordered", default_image: "anonymousprofile.png" %>
+		  	<div class="d-flex">
+		    	<%= cl_image_tag product.photos[0].key, size: "200x200"%>
+			    <div class="card-trip-info">
+			    	<h2><%= product.name %></h2>
+			    	<p><%= product.description %></p>
+			    </div>
+			    <div class="card-trip-bookings">
+			    	<% if product.bookings.size > 0 %>
+			    		<p><strong><%= product.bookings.size %> Bookings</strong></p>
+			    		<% bookings_product = product.bookings.sort_by { |booking| booking.start_date } %>
+				    	<% bookings_product.each do |booking| %>
+					    	<div class="booking-item">
+					    	  <%= booking.start_date %>
+					    	  <i class="fas fa-arrow-alt-circle-right"></i>
+					    	  <%= booking.end_date %>
+					    	</div>
+				    	<% end %>
+				    <% else %>
+				    	<div class="booking-item pt-5 mt-2">
+				    		<p>There is no booking for this product at this time.</p>
+				    	</div>
+				    <% end %>
+			    </div>
 		    </div>
 		  </div>
 	<% end %>
