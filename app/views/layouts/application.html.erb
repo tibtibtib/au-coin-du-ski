@@ -13,11 +13,10 @@
   <body>
     <%#= cl_image_tag("anonymousprofile",
       width: 400, height: 300, crop: :fill) %>
-    <%= render 'layouts/components/navbar' %>
+    <%= render 'shared/navbar' %>
     <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= render 'layouts/components/footer' %>
+    <%= render 'shared/flashes' %>
+    <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
 
     <%= javascript_pack_tag 'application' %>

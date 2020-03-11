@@ -1,6 +1,9 @@
 <div class="banner" style="background-image: url('<%= image_path 'sebastian-staines-xZIFEPtRsRI-unsplash.jpg' %>');">
   <div class ="container">
-    <div class="banner-content"><h2> Louez votre matériel de ski à d'autres particuliers! </h2> </div>
+    <div class="banner-content">
+      <h2> Louez votre matériel de ski à d'autres particuliers! </h2>
+    </div>
+    <%= link_to "Voir les annonces !", products_path, class: "btn btn-primary px-3 banner-btn" %>
   </div>
 </div>
 
@@ -19,8 +22,3 @@
     <% end %>
   </div>
 </div>
-
- -->
-<%= link_to "sign up", new_user_registration_path  %>
-<%= link_to "sign in", new_user_session_path  %>
-<%= link_to "log out", destroy_user_session_path, method: :delete %>

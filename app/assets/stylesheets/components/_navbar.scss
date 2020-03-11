@@ -11,9 +11,14 @@
   width: 40px;
 }
 
-.navbar {
+.naked-navbar {
   position: fixed;
   z-index: 10;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.0)
+}
+
+.pages-link {
+  font-family: "Raleway", "Helvetica", "sans-serif";
+  font-size: 18px;
 }
