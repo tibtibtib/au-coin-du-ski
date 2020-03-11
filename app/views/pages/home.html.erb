@@ -23,7 +23,13 @@
                   </div>
               </div>
               <h2 class="card-product-pricing"><%= product.price%>€ /jour</h2>
-              <%= cl_image_tag product.user.avatar.key, class: "card-product-user avatar-bordered", default_image: "anonymousprofile.png" %>
+              <% if product.user.avatar.attached? %>
+                <%= cl_image_tag product.user.avatar.key, class: "card-product-user avatar-bordered" %>
+              <% else %>
+                <%= image_tag 'anonymousprofile.png', class: "card-product-user avatar-bordered" %>
+                
+              <% end %>
+              
             </div>
            <%= link_to "", product_path(product), class: 'card-link' %>
       </div>
