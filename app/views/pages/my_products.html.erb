@@ -8,23 +8,29 @@
 			    <div class="card-trip-info">
 			    	<h2><%= product.name.capitalize %></h2>
 			    	<p><%= product.description %></p>
+    	    	<div class="delete-edit">
+    		    	<%= link_to "supprimer", product_path(product), method: :delete,  data: { confirm: "Are you sure?" }%> 
+    		    	<%= link_to "éditer", edit_product_path(product) %>
+    		    </div>
 			    </div>
-			    <div class="card-trip-bookings">
-			    	<% if product.bookings.size > 0 %>
-			    		<p><strong><%= product.bookings.size %> Bookings</strong></p>
-			    		<% bookings_product = product.bookings.sort_by { |booking| booking.start_date } %>
-				    	<% bookings_product.each do |booking| %>
-					    	<div class="booking-item">
-					    	  <%= booking.start_date %>
-					    	  <i class="fas fa-arrow-alt-circle-right"></i>
-					    	  <%= booking.end_date %>
+			    <div class="card-trip-bookings-container" style="margin-bottom: 30px;">
+				    	<% if product.bookings.size > 0 %>
+				    		<p><strong><%= product.bookings.size %> Bookings</strong></p>
+				    		<div class="card-trip-booking border">
+				    		<% bookings_product = product.bookings.sort_by { |booking| booking.start_date } %>
+					    	<% bookings_product.each do |booking| %>
+						    	<div class="booking-item">
+						    	  <%= booking.start_date %>
+						    	  <i class="fas fa-arrow-alt-circle-right"></i>
+						    	  <%= booking.end_date %>
+						    	</div>
+					    	<% end %>
 					    	</div>
-				    	<% end %>
-				    <% else %>
-				    	<div class="booking-item pt-5 mt-2">
-				    		<p>There is no booking for this product at this time.</p>
-				    	</div>
-				    <% end %>
+					    <% else %>
+					    	<div class="booking-item pt-5 mt-2">
+					    		<p>There is no booking for this product at this time.</p>
+					    	</div>
+					    <% end %>
 			    </div>
 		    </div>
 		  </div>
