@@ -6,7 +6,7 @@
 		  	<div class="d-flex">
 		    	<%= cl_image_tag product.photos[0].key, size: "200x200"%>
 			    <div class="card-trip-info">
-			    	<h2><%= product.name %></h2>
+			    	<h2><%= product.name.capitalize %></h2>
 			    	<p><%= product.description %></p>
 			    </div>
 			    <div class="card-trip-bookings">
