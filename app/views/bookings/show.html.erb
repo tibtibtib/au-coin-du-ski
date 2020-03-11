@@ -26,7 +26,7 @@
       	<p>Début de la Réservation : <%= @booking.start_date %></p>
       	<p>Fin de la Réservation : <%= @booking.end_date %></p>
       	<p><strong>Prix total : <%= @time.to_i * @product.price %> €</strong></p>
-        <%= link_to "Confirmer", pages_my_bookings_path, class: "btn btn-primary btn-lg btn-block" %>
+        <%= link_to "Confirmer", confirm_booking_path, class: "btn btn-primary btn-lg btn-block" %>
         <%= link_to "Annuler",
             booking_path(@booking), class: "btn btn-outline-primary btn-lg btn-block",
             method: :delete,
@@ -40,5 +40,3 @@
 
   </div>
 </div>
-
-

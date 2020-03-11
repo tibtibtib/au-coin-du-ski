@@ -8,6 +8,9 @@
         <%= cl_image_tag booking.product.photos[0].key, size: "200x200" %>
         <div class="bookings-info p-2 ml-3">
           <div>
+            <p>Statut : <%= booking.status %></p>
+          </div>
+          <div>
             <h2><%= booking.product.name.capitalize %></h2>
             <div class="d-flex">
               <p><%= booking.product.address %></p>

@@ -20,4 +20,8 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     record.user == user  # Only booking creator can update it
   end
+
+  def confirm?
+    record.user == user
+  end
 end
