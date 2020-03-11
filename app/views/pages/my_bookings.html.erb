@@ -33,35 +33,5 @@
         </div>
       </div>
     </div>
-    <div class="card-trip">
-      <div class="d-flex">
-        <%= cl_image_tag booking.product.photos[0].key, size: "200x200" %>
-        <div class="bookings-info p-2 ml-3">
-          <div>
-            <h2><%= booking.product.name %></h2>
-            <div class="d-flex">
-              <p><%= booking.product.address %></p>
-              <i class="fas fa-map-marker-alt ml-1"></i>
-            </div>
-            <div>
-              <%= booking.start_date %>
-              <i class="fas fa-arrow-alt-circle-right"></i>
-              <%= booking.end_date %>
-            </div>
-          </div>
-        </div>
-        <div class="booking-dollar-user">
-          <div class="card-trip-pricing">
-            <p><%= (booking.product.price * (booking.end_date - booking.start_date)).to_i%> $</p>
-          </div>
-          <div class="button-booking">
-            <a href="mailto:<%= booking.product.user.email %>"><%= booking.product.user.email %></a>
-            <% if booking.product.user.cell_phone %>
-              <p>booking.product.user.cell_phone</p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div> 
   <% end %>
 </div>
