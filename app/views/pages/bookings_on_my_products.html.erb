@@ -4,9 +4,9 @@
      <% bookings_product = product.bookings.sort_by { |booking| booking.start_date } %>
     	<% bookings_product.each do |booking|  %>
 		    <div class="card-trip">
-	          <div class="d-flex ">
+	          <div class="d-flex justify-content-between">
 	            <%= cl_image_tag booking.product.photos[0].key, size: "200x200" %>
-	            <div class="bookings-info p-2 ml-3">
+	            <div class="bookings-info p-2 ml-3 flex-grow-1">
 	              <div>
 	                <p>Statut : <%= booking.status %></p>
 			        <p>Début de location : <%= booking.start_date %></p>
@@ -14,14 +14,14 @@
 			        <p>Montant dû par l'utilisateur: <%= (booking.product.price * (booking.end_date - booking.start_date)).to_i%>€</p>
 			      </div>
 			    </div>
-			    <div >
-			      <div class="card-trip-bookings-container">
+			    <div>
+			      <div class="card-trip-bookings-container mt-1" style="max-width: 250px; padding:0; margin: 0">
 			      	<p> Utilisateur </p>
                     <p> <small> <%= product.user.first_name  %> </small></p>
                     <% if product.user.avatar.attached? %>
-                      <%= cl_image_tag product.user.avatar.key, class: 'avatar-large ml-3',alt: product.user.first_name %>
+                      <%= cl_image_tag product.user.avatar.key, class: 'avatar-large',alt: product.user.first_name %>
                     <% else %>
-                      <%= image_tag 'anonymousprofile.png', class: "avatar-large ml-3" %>
+                      <%= image_tag 'anonymousprofile.png', class: "avatar-large" %>
                     <%end%>
                     <div>
 	                  <a href="mailto:<%= booking.product.user.email %>"><%= booking.product.user.email %></a>

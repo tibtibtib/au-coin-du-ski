@@ -10,7 +10,7 @@
 			    	<p><%= product.description %></p>
     	    	<div class="d-flex justify-content-between pt-4 pr-1 pl-1">
     	    		<% if product.bookings.count > 0 %>
-    	    			<%= link_to "#{product.bookings.count} réservations", product_path(product), class: "p-3" %>
+    	    			<%= link_to "#{product.bookings.count} réservations", pages_bookings_on_my_products_path, class: "p-3" %>
     	    		<% else %>
     	    			<p style="font-size: 12px" class="p-3">Aucunes réservations en cours.</p>
     	    		<% end %>
