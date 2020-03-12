@@ -2,8 +2,24 @@
   <div class ="container">
     <div class="banner-content">
       <h2> Louez votre matériel de ski à d'autres particuliers! </h2>
+      <%= form_tag products_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Skis..chaussures.."
+        %>
+        <%= date_field_tag :start_date,
+          params[:star_date],
+          class: "form-control"
+        %>
+        <%= date_field_tag :end_date,
+          params[:end_date],
+          class: "form-control"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     </div>
-    <%= link_to "Voir les annonces !", products_path, class: "btn btn-primary px-3 banner-btn" %>
+    <%#= link_to "Voir les annonces !", products_path, class: "btn btn-primary px-3 banner-btn" %>
   </div>
 </div>
 
@@ -17,4 +33,3 @@
     <% end %>
   </div>
 </div>
-
