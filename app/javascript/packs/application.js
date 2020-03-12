@@ -2,9 +2,8 @@ import "bootstrap";
 import { initStarRating } from '../plugins/init_star_rating';
 import { fixFooter } from '../plugin/footer';
 import { onScrollNavBar } from '../plugin/navbar';
-<<<<<<< HEAD
+
 import { filtersProducts } from '../plugin/productFilter';
-// import { updatePriceOnDateClick } from '../plugin/calculate_price';
 
 import { datePicker } from '../plugin/datepickr';
 import { updatePriceOnDateClick } from '../plugin/calculate_price';
@@ -20,6 +19,9 @@ onScrollNavBar();
 filtersProducts();
 
 initMapbox();
+
 initStarRating();
+
 datePicker();
 
+updatePriceOnDateClick();
