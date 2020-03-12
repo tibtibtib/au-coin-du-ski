@@ -7,4 +7,11 @@ class Product < ApplicationRecord
   validates :category, presence: true,  inclusion: { in: CATEGORIES }
   validates :address, presence: true
   validates :description, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_description,
+    against: [ :name, :description ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
