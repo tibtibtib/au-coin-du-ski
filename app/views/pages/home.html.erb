@@ -10,11 +10,11 @@
         %>
         <%= date_field_tag :start_date,
           params[:star_date],
-          class: "form-control"
+          class: "form-control datepicker"
         %>
         <%= date_field_tag :end_date,
           params[:end_date],
-          class: "form-control"
+          class: "form-control datepicker"
         %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
