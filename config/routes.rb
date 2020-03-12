@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'pages/concept', to: 'pages#concept'
   get 'pages/my_bookings', to: 'pages#my_bookings'
   get 'pages/my_products', to: 'pages#my_products'
+  get 'pages/bookings_on_my_products', to: 'pages#bookings_on_my_products'
 end
