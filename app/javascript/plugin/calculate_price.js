@@ -1,4 +1,6 @@
 
+import { datePickerProduct } from '../plugin/datepickr';
+
 const updateForm = () => {
   const start_date_btn = document.getElementById('booking_start_date');
   const split_date = start_date_btn.value.split(" to ")
@@ -11,16 +13,12 @@ const updateForm = () => {
   const price = unit_price * nb_days;
   const price_field = document.getElementById('price-tag');
 
-
-  console.log(price)
-
   if (price > 0) {
     price_field.innerHTML = `<p> <b>Durée:</b> ${nb_days} jours &nbsp &nbsp <b> Total: </b> ${price} €  </p> `;
   }
 };
 
 const updatePriceOnDateClick = (date_button) => {
-  console.log(date_button);
   date_button.addEventListener('change', updateForm);
 };
 
@@ -28,7 +26,7 @@ const updatePriceOnDateClick = (date_button) => {
 const start_date_input = document.getElementById('booking_start_date');
 
 if (start_date_input) {
-  console.log(start_date_input)
+  datePickerProduct();
   updatePriceOnDateClick(start_date_input);
 }
 
