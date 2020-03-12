@@ -8,22 +8,7 @@
   <div class="row">
     <% Product.all.each do |product| %>
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card-product">
-          <%= cl_image_tag product.photos[0].key %> 
-           <span class="badge badge-primary badge-category"><%= product.category %></span>
-            <div class="card-product-infos">
-              <div>
-                <h2><%= product.name %></h2>
-                  <div class="d-flex">
-                    <p><%= product.address %></p>
-                    <i class="fas fa-map-marker-alt ml-1"></i>
-                  </div>
-              </div>
-              <h2 class="card-product-pricing"><%= product.price%>$ /jour</h2>
-              <%= cl_image_tag product.user.avatar.key, class: "card-product-user avatar-bordered", default_image: "anonymousprofile.png" %>
-            </div>
-           <%= link_to "", product_path(product), class: 'card-link' %>
-      </div>
+      <%= render 'shared/card', product: product %>
     </div>
     <% end %>
   </div>
