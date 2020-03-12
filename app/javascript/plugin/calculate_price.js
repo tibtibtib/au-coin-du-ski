@@ -21,8 +21,10 @@ const updatePriceOnDateClick = (date_button) => {
 const end_date_input = document.getElementById('booking_end_date');
 const start_date_input = document.getElementById('booking_start_date');
 
-updatePriceOnDateClick(start_date_input);
-updatePriceOnDateClick(end_date_input);
+if (end_date_input && start_date_input) {
+  updatePriceOnDateClick(start_date_input);
+  updatePriceOnDateClick(end_date_input);
+}
 
 export { updatePriceOnDateClick };
 
