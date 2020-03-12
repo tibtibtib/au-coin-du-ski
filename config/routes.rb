@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'confirm'
     end
   end
+  resources :reviews, only: [:new, :create]
 
   get 'pages/concept', to: 'pages#concept'
   get 'pages/my_bookings', to: 'pages#my_bookings'

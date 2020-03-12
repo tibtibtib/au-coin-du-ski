@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for @review do |f| %>
+        <%= f.input :content, label: "Comment décririez vous votre expérience de location?" %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Notez votre expérience de location" %>
+        <%= f.submit "Poster ma review",class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
