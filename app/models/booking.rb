@@ -4,6 +4,7 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
+  validates :start_date, :end_date, overlap: true
   validate :end_date_after_start_date, :no_dates_in_past
   validates :status, presence: true, inclusion: { in: ["En attente", "Confirmée"] }
 
