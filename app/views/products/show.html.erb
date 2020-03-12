@@ -11,8 +11,14 @@
         <p><strong>Adresse du produit</strong> </p>
         <p> <%= @product.address %> </p>
         <% if current_user == @product.user %>
-          <%= link_to "éditer", edit_product_path %>
-          <%= link_to "supprimer", product_path, method: :delete %>
+        <div class="text-right">
+          <%= link_to edit_product_path do %>
+            <i class="fas fa-edit p-1"></i>
+          <% end %>
+          <%= link_to product_path, method: :delete,  data: { confirm: "Are you sure?" } do %> 
+            <i class="fas fa-trash p-1"></i>
+          <% end %>
+        </div>
         <% end %>
         
       </div>
