@@ -27,7 +27,8 @@ class ProductsController < ApplicationController
     if @product.geocoded?
       @marker = {
         lat: @product.latitude,
-        lng: @product.longitude
+        lng: @product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: @product })
       }
     end
   end
