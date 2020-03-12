@@ -1,15 +1,18 @@
 <div class="banner-small" style="background-image: url('<%= image_path 'sebastian-staines-xZIFEPtRsRI-unsplash.jpg' %>');">
   <div class ="container">
-    <div class="banner-content"><h2> Votre recherche </h2> </div>
+    <div class="banner-content">
+      <h2> Votre recherche </h2>
+      <h4> <strong>  <%= @products.count%> annonces trouvées </strong> </h4>
+    </div>
   </div>
-</div>    
-   
+</div>
+
 <div class="container">
   <div class="row">
-    <% Product.all.each do |product| %>
+    <% @products.each do |product| %>
     <div class="col-12 col-md-6 col-lg-4">
       <div class="card-product">
-          <%= cl_image_tag product.photos[0].key %> 
+          <%= cl_image_tag product.photos[0].key %>
            <span class="badge badge-primary badge-category"><%= product.category %></span>
             <div class="card-product-infos">
               <div>
