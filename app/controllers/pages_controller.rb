@@ -15,4 +15,6 @@ class PagesController < ApplicationController
   def my_products
     @my_products = current_user.products
   end
+  def bookings_on_my_products
+  end
 end
