@@ -29,7 +29,7 @@
           <%= link_to edit_product_path do %>
             <i class="fas fa-edit p-1"></i>
           <% end %>
-          <%= link_to product_path, method: :delete,  data: { confirm: "Are you sure?" } do %> 
+          <%= link_to product_path, method: :delete,  data: { confirm: "Are you sure?" } do %>
             <i class="fas fa-trash p-1"></i>
           <% end %>
         </div>
@@ -44,7 +44,7 @@
                 <%= cl_image_tag @product.user.avatar.key, class: 'avatar-large ml-3',alt: @product.user.first_name %>
               <% else %>
                 <%= image_tag 'anonymousprofile.png', class: "avatar-large ml-3" %>
-                
+
               <% end %>
             </div>
           </div>
@@ -87,5 +87,11 @@
 
   </div>
 </div>
+
+<div id="hidden" data-price = "<%= @product.price%>" >
+
+</div>
+
+
 
 
