@@ -23,6 +23,14 @@ class ProductsController < ApplicationController
   def show
     @booking = Booking.new
     authorize @product
+
+    if @product.geocoded?
+      @marker = {
+        lat: @product.latitude,
+        lng: @product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: @product })
+      }
+    end
   end
 
   def new
