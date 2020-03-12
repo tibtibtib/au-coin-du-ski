@@ -16,11 +16,15 @@
   width: 100%;
   object-fit: cover;
 }
-
+.card-product-pricing {
+  min-width: 40px;
+}
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  padding: 5px 0;
+  height: 40px;
 }
 
 .card-product p {
