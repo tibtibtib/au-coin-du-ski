@@ -26,3 +26,8 @@
 #navbar {
   transition: all 0.2s ease-in-out;
 }
+
+.navbar-toggler:focus, .navbar-toggler:active {
+  outline: none;
+  box-shadow: none;
+}
