@@ -2,22 +2,24 @@
   <div class ="container">
     <div class="banner-content">
       <h2> Votre recherche </h2>
-      <h4> <strong>  <%= @products.count%> annonces trouvées </strong> </h4>
     </div>
   </div>
 </div>
 
 <div class="container">
   <% if @products.count > 0 %>
-    <div id="products-selector">
-      <p>Filtrer par:</p>
-      <%= form_for @products.first do |p| %>
-        <%= p.select :category,
-          collection: Product::CATEGORIES,
-          label: 'Catégorie',
-          class: "custom-select"
-        %>
-      <% end %>
+    <div id="products-selector" class="d-flex justify-content-between mt-2">
+      <p id="product-count"><%= @products.count%> annonces trouvées</p>
+      <div class="d-flex justify-content-end">
+        <p>Filtrer par:</p>
+        <%= form_for @products.first do |p| %>
+          <%= p.select :category,
+            collection: Product::CATEGORIES,
+            label: 'Catégorie',
+            class: "custom-select"
+          %>
+        <% end %>
+      </div>
     </div>
   <% end %>
   <div class="row">
