@@ -8,13 +8,15 @@
           class: "form-control",
           placeholder: "Skis..chaussures.."
         %>
-        <%= date_field_tag :start_date,
+        <%= text_field_tag :start_date,
           params[:star_date],
-          class: "form-control"
+          class: "form-control",
+          id: "start_date"
         %>
-        <%= date_field_tag :end_date,
+        <%= text_field_tag :end_date,
           params[:end_date],
-          class: "form-control"
+          class: "form-control",
+          id: "end_date"
         %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
