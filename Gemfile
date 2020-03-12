@@ -16,7 +16,6 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'pundit'
-gem 'validates_overlap'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
