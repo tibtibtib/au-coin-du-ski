@@ -1,11 +1,11 @@
 <%= simple_form_for([product, booking]) do |f| %>
   <div class="d-flex justify-content-between">
     <div class="half-window">
-      <%= f.input :start_date, as: :date, html5: true,
+      <%= f.input :start_date, as: :string,
                   label: 'Date de début'%>
     </div>
     <div class="half-window">
-  <%= f.input :end_date, as: :date, html5: true,
+  <%= f.input :end_date, as: :string,
               label: 'Date de fin'%>
     </div>
   </div>

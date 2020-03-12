@@ -12,5 +12,14 @@ const datePicker = () => {
   });
 };
 
+const datePickerProduct = () => {
+  flatpickr("#booking_start_date", {
+    altInput: true,
+    altFormat: "d/m/Y",
+    allowInput: true,
+    "plugins": [new rangePlugin({ input: "#booking_end_date"})]
+  });
+};
 
-export { datePicker };
+
+export { datePicker, datePickerProduct };
