@@ -93,5 +93,28 @@
 </div>
 
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= simple_form_for ([@product, @review]) do |f| %>
+        <%= f.input :content, label: "Comment décririez vous votre expérience de location?" %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Notez votre expérience de location" %>
+        <%= f.submit "Poster ma review",class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<h2>
+  <%= pluralize @product.reviews.size, "review" %>
+</h2>
 
+<div id="products">
+  <% if @product.reviews.blank? %>
+    Be the first to leave a review for <%= @product.name %>
+  <% else %>
+    <% @product.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
 
