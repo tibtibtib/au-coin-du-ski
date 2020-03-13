@@ -9,14 +9,20 @@
           <%= cl_image_tag booking.product.photos[0].key, size: "200x200" %>
           <div class="bookings-info p-2 ml-3">
             <div class="d-flex justify-content-start">
-              <p class="mb-0 align-self-center badge <%= 'badge-primary' if booking.status == "En Attente" %> <%= 'badge-success' if booking.status == "Confirmée" %>" id="booking-status">Statut : <%= booking.status %></p>
+              <p class="mb-0 align-self-center badge <%= 'badge-primary' if booking.status == "En Attente" %> <%= 'badge-success' if booking.status == "Confirmée" %>" id="statut-<%= booking.id %>">
+                   Statut : <span id="booking-status-<%= booking.id %>"><%= booking.status %></span>
+              </p>
               <% if booking.status == "En Attente" %>
-                <%= link_to confirm_booking_path(booking), remote: true, class: "ml-3 text-primary" do %>
+                <%= link_to confirm_booking_path(booking), id: "confirm-#{booking.id}",
+                      remote: true,
+                      class: "ml-3 text-primary" do %>
                   <i class="fas fa-check"></i>
                 <% end %>
-              <% end %>
-              <% if booking.status == "En Attente" %>
-                <%= link_to confirm_booking_path(booking), remote: true, class: "ml-3 text-primary" do %>
+                <%= link_to booking_path(booking), id: "cancel-#{booking.id}",
+                            remote: true,
+                            class: "ml-3 text-primary",
+                            method: :delete,
+                            data: { confirm: "Êtes-vous sûr?" } do %>
                   <i class="fas fa-times"></i>
                 <% end %>
               <% end %>
