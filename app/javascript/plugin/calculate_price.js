@@ -1,4 +1,3 @@
-
 import { datePickerProduct } from '../plugin/datepickr';
 
 const updateForm = () => {
@@ -31,4 +30,3 @@ if (start_date_input) {
 }
 
 export { updatePriceOnDateClick };
-

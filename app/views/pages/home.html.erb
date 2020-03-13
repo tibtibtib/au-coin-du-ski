@@ -6,27 +6,36 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Skis..chaussures.."
+          placeholder: "Skis, chaussures, ..."
         %>
         <%= text_field_tag :start_date,
           params[:star_date],
           class: "form-control",
-          id: "start_date"
+          id: "start_date",
+          placeholder: "Date de début"
         %>
         <%= text_field_tag :end_date,
           params[:end_date],
           class: "form-control",
-          id: "end_date"
+          id: "end_date",
+          placeholder: "Date de fin"
         %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
-    <%#= link_to "Voir les annonces !", products_path, class: "btn btn-primary px-3 banner-btn" %>
   </div>
 </div>
 
 <div class="container">
-  <h4 class="mt-5 mb-0"> <strong> <%= Product.all.count %> annonces </strong></h4>
+  <div class="d-flex justify-content-end mt-2" id="products-selector">
+    <p>Catégorie: </p>
+    <%= simple_form_for Product.new do |p| %>
+      <%= p.select :category,
+        collection: Product::CATEGORIES,
+        prompt:'Catégorie'
+      %>
+    <% end %>
+  </div>
   <div class="row">
     <% Product.all.each do |product| %>
     <div class="col-12 col-md-6 col-lg-4">

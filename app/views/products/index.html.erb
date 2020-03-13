@@ -2,12 +2,16 @@
   <div class ="container">
     <div class="banner-content">
       <h2> Votre recherche </h2>
-      <h4> <strong>  <%= @products.count%> annonces trouvées </strong> </h4>
     </div>
   </div>
 </div>
 
 <div class="container">
+  <% if @products.count > 0 %>
+    <!-- <div class="d-flex justify-content-between mt-2"> -->
+    <p id="product-count"><%= @products.count%> annonces trouvées</p>
+    <!-- </div> -->
+  <% end %>
   <div class="row">
     <% @products.each do |product| %>
     <div class="col-12 col-md-6 col-lg-4">
