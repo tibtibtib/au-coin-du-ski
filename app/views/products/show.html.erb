@@ -104,6 +104,22 @@
 
 
 <div class="container">
+  <h2>
+    <%= pluralize @product.reviews.size, "évaluation" %>
+  </h2>
+
+  <div id="products">
+  <% if @product.reviews.blank? %>
+    Laissez la première évaluation de ce produit <%= @product.name %>
+  <% else %>
+    <% @product.reviews.each do |review| %>
+      <%= render 'reviews/show', review: review %>
+    <% end %>
+  <% end %>
+</div>
+ <h2>
+  Votre évaluation du produit
+  </h2>
   <div class="row">
     <div class="col-xs-4">
       <%= simple_form_for ([@product, @review]) do |f| %>
@@ -114,18 +130,8 @@
     </div>
   </div>
 </div>
-<h2>
-  <%= pluralize @product.reviews.size, "review" %>
-</h2>
 
-<div id="products">
-  <% if @product.reviews.blank? %>
-    Be the first to leave a review for <%= @product.name %>
-  <% else %>
-    <% @product.reviews.each do |review| %>
-      <%= render 'reviews/show', review: review %>
-    <% end %>
-  <% end %>
-</div>
+
+
 
 

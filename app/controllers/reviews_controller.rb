@@ -6,11 +6,13 @@ class ReviewsController < ApplicationController
     authorize @review
     @product = Product.find(params[:product_id])
     @review.product = @product
+    @review.user = current_user
     if @review.save
       redirect_to product_path(@product)
     else
       flash[:alert] = "Something went wrong."
-      render 'products/show' 
+      @booking = Booking.new
+      render 'products/show'
     end
   end
 
