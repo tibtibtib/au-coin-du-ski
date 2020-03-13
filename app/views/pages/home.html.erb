@@ -23,18 +23,18 @@
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
-    <%#= link_to "Voir les annonces !", products_path, class: "btn btn-primary px-3 banner-btn" %>
   </div>
 </div>
 
 <div class="container">
-  <div class="d-flex justify-content-between">
-    <h4 class="mt-5 mb-0"> <strong> <%= Product.all.count %> annonces </strong></h4>
-    <%= simple_form_for Product.new, input_html: { class: "d-flex"} do |p| %>
-      <%= p.input :category,
-                  collection: Product::CATEGORIES,
-                  label: 'Catégorie',
-                  class: "products-selector" %>
+  <div class="d-flex justify-content-end mt-2" id="products-selector">
+    <p>Catégorie: </p>
+    <%= form_for Product.all.first do |p| %>
+      <%= p.select :category,
+        collection: Product::CATEGORIES,
+        prompt:'Catégorie',
+        class: "custom-select"
+      %>
     <% end %>
   </div>
   <div class="row">
