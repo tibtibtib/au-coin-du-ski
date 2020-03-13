@@ -1,1 +1,22 @@
-<p><%= review.rating %> <%= review.content %></p>
+<div class= "d-flex">
+	<div class="m-2 align-items-center">
+		
+		<% if review.user.avatar.attached? %>
+			<div class="position-relative">
+		  		<%= cl_image_tag review.user.avatar.key, class: 'avatar-large ml-2',alt: review.user.first_name %>
+				<p class="position-absolute" style="top:-23px; left:24px"> <small> <%= review.user.first_name  %> </small></p>
+
+			</div>
+		<% else %>
+		  <%= image_tag 'anonymousprofile.png', class: "avatar-large ml-3" %>
+		<% end %>
+	</div>
+	<div>
+	<p  style="line-height: 72px">
+		<% review.rating.times do %> 
+			<i class="fas fa-star"></i>
+		<% end %>
+	  <i class="ml-3"><%= review.content %></i></p>
+	</div>
+	  
+</div>
