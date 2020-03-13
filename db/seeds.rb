@@ -10,6 +10,8 @@ require "open-uri"
 puts "cleaning database"
 Product.destroy_all
 User.destroy_all
+Booking.destroy_all
+Review.destroy_all
 
 puts "generating users"
 
@@ -63,10 +65,14 @@ product5_photo_1 = URI.open('https://www.placedelaloc.com/sites/default/files/st
 product5_photo_2 = URI.open('https://www.placedelaloc.com/sites/default/files/styles/annonce_detail/public/annonces/2018/03/27/4298/location-combinaison_de_ski_enfant_6_ans_quechua-1135021784.jpg?itok=oGwcaS3U')
 product6_photo_1 = URI.open('https://www.placedelaloc.com/sites/default/files/styles/annonce_detail/public/annonces/2016/11/04/3475/location-skis_batons_chaussures-1441558497.jpg?itok=_GcLXjR5')
 product6_photo_2 = URI.open('https://www.placedelaloc.com/sites/default/files/styles/annonce_detail/public/annonces/2016/11/04/3475/location-skis_batons_chaussures-1043309082.jpg?itok=yXPAZjKf')
+product7_photo_1 = URI.open('https://www.placedelaloc.com/sites/default/files/styles/annonce_detail/public/annonces/2014/12/30/3930/location-casque_de_ski-456068682.jpg?itok=UXk1SEd6')
+product7_photo_2 = URI.open('https://www.placedelaloc.com/sites/default/files/styles/annonce_detail/public/annonces/2014/12/30/3930/location-casque_de_ski-1041133703.jpg?itok=t4ybRY8m')
+product7_photo_3 = URI.open('https://www.placedelaloc.com/sites/default/files/styles/annonce_detail/public/annonces/2014/12/30/3930/location-casque_de_ski-1467289711.jpg?itok=UT0cA6wo')
+
 
 product1 = Product.create({
   name: 'Skis Rossignol 170',
-  address: 'Serre Chevalier',
+  address: 'Saint-Chaffrey (05330)',
   description: 'Skis Rossignol 170 de 2020 état neuf',
   price: 10,
   category: 'skis',
@@ -76,7 +82,7 @@ product1.photos.attach(io: product1_photo, filename: 'ski_rossignol.jpeg', conte
 
 product2 = Product.create({
   name: 'Skis Salomon 160',
-  address: 'Serre Chevalier',
+  address: 'La Clusaz (74220)',
   description: 'Skis Salomon 160 de 2019 en très bon état',
   price: 15,
   category: 'skis',
@@ -87,11 +93,11 @@ product2.photos.attach(io: product2_photo, filename: 'ski_salomon.jpeg', content
 
 product3 = Product.create({
   name: 'Snowboard Salomon 150',
-  address: 'Orcière Merlette',
+  address: 'Rue des Ecrins, Orcières (05170)',
   description: 'Snowboard freeride',
   price: 10,
   category: 'snowboard',
-  user: user2
+  user: user4
 })
 product3.photos.attach(io: product3_photo, filename: 'snow_rossignol.jpeg', content_type: 'image/jpeg')
 
@@ -101,7 +107,7 @@ product4 = Product.create({
   description: 'Chaussures TECNICA taille 19.5, soit 203 mm, couleur orange',
   price: 4,
   category: "chaussures de ski",
-  user: user2
+  user: user4
 })
 product4.photos.attach(io: product4_photo, filename: 'chaussuresorange.jpeg', content_type: 'image/jpeg')
 
@@ -128,7 +134,83 @@ product6.photos.attach(io: product6_photo_1, filename: 'pack1.jpeg', content_typ
 product6.photos.attach(io: product6_photo_2, filename: 'pack2.jpeg', content_type: 'image/jpeg')
 
 
+
+product7 = Product.create({
+  name: 'Casque de Ski',
+  address: 'Villelaure (84530)',
+  description: "Loue casque de ski. peu utilisé. Taille de 54 à 60cm de tour de tête",
+  price: 3,
+  category: "casque",
+  user: user3
+})
+product7.photos.attach(io: product7_photo_1, filename: 'casque1.jpeg', content_type: 'image/jpeg')
+product7.photos.attach(io: product7_photo_2, filename: 'casque2.jpeg', content_type: 'image/jpeg')
+product7.photos.attach(io: product7_photo_3, filename: 'casque3.jpeg', content_type: 'image/jpeg')
+
 puts "product generated!"
 
+booking1_own = Booking.create({
+    product_id: product6.id,
+    user_id: user4.id,
+    start_date: Date.new(2020, 3, 18),
+    end_date: Date.new(2020, 3, 20),
+    status: "Confirmée"
+})
 
+booking2_own = Booking.create({
+    product_id: product7.id,
+    user_id: user4.id,
+    start_date: Date.new(2020, 3, 18),
+    end_date: Date.new(2020, 3, 20),
+    status: "Confirmée"
+})
+
+booking3_own = Booking.create({
+    product_id: product1.id,
+    user_id: user4.id,
+    start_date: Date.new(2020, 3, 20),
+    end_date: Date.new(2020, 3, 22)
+})
+
+booking4_other = Booking.create({
+    product_id: product3.id,
+    user_id: user1.id,
+    start_date: Date.new(2020, 3, 20),
+    end_date: Date.new(2020, 3, 22),
+    status: "Confirmée"
+})
+
+booking5_other = Booking.create({
+    product_id: product4.id,
+    user_id: user1.id,
+    start_date: Date.new(2020, 3, 25),
+    end_date: Date.new(2020, 3, 27),
+    status: "Confirmée"
+})
+
+puts "bookings generated for Alix user!"
+
+review1 = Review.create({
+    content: "Très satisfait du produit",
+    rating: 5,
+    product_id: product3.id,
+    user_id: user1.id
+})
+
+review2 = Review.create({
+    content: "Bon produit",
+    rating: 4,
+    product_id: product3.id,
+    user_id: user2.id
+})
+
+review3 = Review.create({
+    content: "Très content",
+    rating: 4,
+    product_id: product4.id,
+    user_id: user3.id
+})
+
+
+puts "reviews generated"
 

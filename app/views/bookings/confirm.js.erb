@@ -1,0 +1,5 @@
+document.querySelector("#booking-status-<%= @booking.id %>").innerText = "<%= @booking.status %>";
+document.querySelector("#statut-<%= @booking.id %>").classList.add('badge-success');
+document.querySelector("#statut-<%= @booking.id %>").classList.remove('badge-primary');
+document.querySelector("#confirm-<%= @booking.id %>").style.display = "none";
+document.querySelector("#cancel-<%= @booking.id %>").style.display = "none";

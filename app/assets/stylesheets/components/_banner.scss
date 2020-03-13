@@ -21,7 +21,7 @@
 .banner-content {
   display: block;
   position: absolute;
-  width: 350px;
+  width: 750px;
   z-index: 1;
   top : 220px;
 }
@@ -79,5 +79,24 @@
     color: white;
     opacity: .7;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+}
+
+.banner-form {
+  width: 100%;
+}
+
+.banner-form-input {
+  width: 100%;
+  margin: 40px 0 0 0;
+  input {
+    width: 33% !important;
+  }
+}
+
+.banner-form-button {
+ width: 100%;
+  input {
+    width: 33%;
   }
 }

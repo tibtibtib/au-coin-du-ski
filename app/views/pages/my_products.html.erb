@@ -1,6 +1,6 @@
 <div class="container">
 	<h1 class="p-2 pb-4">Mes produits</h1>
-	
+
 	<% @my_products.each do |product| %>
 		  <div class="card-trip">
 		  	<div class="d-flex">
@@ -10,12 +10,12 @@
 			    	<p><%= product.description %></p>
     	    	<div class="d-flex justify-content-between pt-4 pr-1 pl-1">
     	    		<% if product.bookings.count > 0 %>
-    	    			<%= link_to "#{product.bookings.count} réservations", pages_bookings_on_my_products_path, class: "p-3" %>
+    	    			<%= link_to "#{product.bookings.count} réservation(s)", product_bookings_path(product), class: "p-3" %>
     	    		<% else %>
-    	    			<p style="font-size: 12px" class="p-3">Aucunes réservations en cours.</p>
+    	    			<p style="font-size: 12px" class="p-3">Aucune réservation en cours.</p>
     	    		<% end %>
     	    		<div>
-	    		    	<%= link_to product_path(product), method: :delete,  data: { confirm: "Are you sure?" } do %> 
+	    		    	<%= link_to product_path(product), method: :delete,  data: { confirm: "Are you sure?" } do %>
 	    		    		<i class="fas fa-trash p-3"></i>
 	    		    	<% end %>
 	    		    	<%= link_to edit_product_path(product) do %>

@@ -2,25 +2,29 @@
   <div class ="container">
     <div class="banner-content">
       <h2> Louez votre matériel de ski à d'autres particuliers! </h2>
-      <%= form_tag products_path, method: :get, class: "form-group form-inline" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Skis, chaussures, ..."
-        %>
-        <%= text_field_tag :start_date,
-          params[:star_date],
-          class: "form-control",
-          id: "start_date",
-          placeholder: "Date de début"
-        %>
-        <%= text_field_tag :end_date,
-          params[:end_date],
-          class: "form-control",
-          id: "end_date",
-          placeholder: "Date de fin"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= form_tag products_path, method: :get, class: "banner-form form-group form-inline" do %>
+        <div class="banner-form-input d-flex justify-content-between">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Skis, chaussures, ..."
+          %>
+          <%= text_field_tag :start_date,
+            params[:star_date],
+            class: "form-control",
+            id: "start_date",
+            placeholder: "Date de début"
+          %>
+          <%= text_field_tag :end_date,
+            params[:end_date],
+            class: "form-control",
+            id: "end_date",
+            placeholder: "Date de fin"
+          %>
+        </div>
+        <div class="banner-form-button mt-4 d-flex justify-content-end">
+          <%= submit_tag "Lancer la recherche", class: "btn btn-primary" %>
+        </div>
       <% end %>
     </div>
   </div>

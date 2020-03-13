@@ -1,0 +1,36 @@
+<div class="container">
+  <h1 class="p-2 pb-4">Les réservations sur mes produits</h1>
+     <% bookings_product = @bookings.sort_by { |booking| booking.start_date } %>
+      <% bookings_product.each do |booking|  %>
+        <div class="card-trip">
+            <div class="d-flex justify-content-between">
+              <%= cl_image_tag booking.product.photos[0].key, size: "200x200" %>
+              <div class="bookings-info p-2 ml-3 flex-grow-1">
+                <div>
+                  <p><strong>Statut : </strong> <%= booking.status %></p>
+              <p><strong>Début de location:</strong> <%= booking.start_date %></p>
+              <p><strong>Fin de location : </strong><%= booking.end_date %></p>
+              <p><strong>Montant dû par l'utilisateur :</strong> <%= (booking.product.price * (booking.end_date - booking.start_date)).to_i%>€</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-trip-bookings-container mt-1" style="max-width: 250px; padding:0; margin: 0">
+              <p> <strong>Utilisateur </strong></p>
+                    <p> <small> <%= booking.user.first_name  %> </small></p>
+                    <% if booking.user.avatar.attached? %>
+                      <%= cl_image_tag booking.user.avatar.key, class: 'avatar-large',alt: booking.user.first_name %>
+                    <% else %>
+                      <%= image_tag 'anonymousprofile.png', class: "avatar-large" %>
+                    <%end%>
+                    <div>
+                    <a href="mailto:<%= booking.user.email %>"><%= booking.user.email %></a>
+                    <% if booking.user.cell_phone %>
+                      <p><%=booking.user.cell_phone%></p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    <% end %>
+</div>
