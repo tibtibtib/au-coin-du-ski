@@ -25,6 +25,14 @@ class ProductsController < ApplicationController
     authorize @product
     @review = Review.new
     authorize @review
+
+    if @product.geocoded?
+      @marker = {
+        lat: @product.latitude,
+        lng: @product.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { product: @product })
+      }
+    end
   end
 
   def new
