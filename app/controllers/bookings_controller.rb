@@ -36,7 +36,10 @@ class BookingsController < ApplicationController
     @booking.confirm
     authorize @booking
 
-    redirect_to pages_my_bookings_path
+    respond_to do |format|
+      format.html { redirect_to pages_my_bookings_path }
+      format.js
+    end
   end
 
   private

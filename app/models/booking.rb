@@ -4,12 +4,13 @@ class Booking < ApplicationRecord
 
   validates :start_date, presence: true
   validates :end_date, presence: true
-  validate :end_date_after_start_date, :no_dates_in_past, :validate_other_booking_overlap
+  validate :end_date_after_start_date
+  validate :no_dates_in_past, :validate_other_booking_overlap, on: :create
   validates :status, presence: true, inclusion: { in: ["En Attente", "Confirmée"] }
 
+
   def confirm
-    self.status = "Confirmée"
-    save
+    update!(status: "Confirmée")
   end
 
   def period
