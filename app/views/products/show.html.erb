@@ -120,17 +120,21 @@
  <h2>
   Votre évaluation du produit
   </h2>
-  <% if Booking.where(user_id: current_user.id, product_id: @product.id).exists? %>
-    <div class="row">
-      <div class="col-xs-4">
-        <%= simple_form_for ([@product, @review]) do |f| %>
-          <%= f.input :content, label: "Comment décririez vous votre expérience de location?" %>
-          <%= f.input :rating, collection: (1..5).to_a, label: "Notez votre expérience de location" %>
-          <%= f.submit "Poster ma review",class: 'btn btn-primary' %>
-        <% end %>
+  <% if user_signed_in? %>
+    <% if Booking.where(user_id: current_user.id, product_id: @product.id).exists? %>
+      <div class="row">
+        <div class="col-xs-4">
+          <%= simple_form_for ([@product, @review]) do |f| %>
+            <%= f.input :content, label: "Comment décririez vous votre expérience de location?" %>
+            <%= f.input :rating, collection: (1..5).to_a, label: "Notez votre expérience de location" %>
+            <%= f.submit "Poster ma review",class: 'btn btn-primary' %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <p>Vous n'avez jamais réservé ce produit.</p>
+    <% end %>
   <% else %>
-    <p>Vous n'avez jamais réservé ce produit.</p>
+    <%= link_to 'Connectez-vous', user_session_path %> pour pouvoir laisser votre avis.
   <% end %>
 </div>
