@@ -28,7 +28,15 @@
 </div>
 
 <div class="container">
-  <h4 class="mt-5 mb-0"> <strong> <%= Product.all.count %> annonces </strong></h4>
+  <div class="d-flex justify-content-between">
+    <h4 class="mt-5 mb-0"> <strong> <%= Product.all.count %> annonces </strong></h4>
+    <%= simple_form_for Product.new, input_html: { class: "d-flex"} do |p| %>
+      <%= p.input :category,
+                  collection: Product::CATEGORIES,
+                  label: 'Catégorie',
+                  class: "products-selector" %>
+    <% end %>
+  </div>
   <div class="row">
     <% Product.all.each do |product| %>
     <div class="col-12 col-md-6 col-lg-4">

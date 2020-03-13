@@ -10,7 +10,7 @@ const countDivs = (div) => {
 };
 
 const filtersProducts = () => {
-	if (document.getElementById("products-selector")) {
+	if (document.getElementsByClassName("products-selector")[0]) {
 		$("#product_category").change(function () {
 			document.querySelectorAll(".col-12").forEach((doc) => {
 				doc.style.display = "block";

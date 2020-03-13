@@ -23,5 +23,3 @@ initMapbox();
 initStarRating();
 
 datePicker();
-
-updatePriceOnDateClick();
