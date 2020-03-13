@@ -4,22 +4,25 @@
   <p> <%= @my_bookings.count %> réservations trouvée(s)</p>
   <% @my_bookings.each do |booking| %>
     <div class="card-trip">
-      <div class="d-flex">
-        <%= cl_image_tag booking.product.photos[0].key, size: "200x200" %>
-        <div class="bookings-info p-2 ml-3">
-          <div>
-            <p>Statut : <%= booking.status %></p>
-          </div>
-          <div>
-            <h2><%= booking.product.name.capitalize %></h2>
-            <div class="d-flex">
-              <p><%= booking.product.address %></p>
-              <i class="fas fa-map-marker-alt ml-1"></i>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          <%= cl_image_tag booking.product.photos[0].key, size: "200x200" %>
+          <div class="bookings-info p-2 ml-3">
+            <div class="d-flex justify-content-start">
+              <p class="mb-0">Statut : <%= booking.status %></p>
+              <%= link_to "Confirmer", confirm_booking_path(booking), class: "ml-3 align-self-center badge badge-primary" %>
             </div>
             <div>
-              <%= booking.start_date %>
-              <i class="fas fa-arrow-alt-circle-right"></i>
-              <%= booking.end_date %>
+              <h2><%= booking.product.name.capitalize %></h2>
+              <div class="d-flex">
+                <p><%= booking.product.address %></p>
+                <i class="fas fa-map-marker-alt ml-1"></i>
+              </div>
+              <div>
+                <%= booking.start_date %>
+                <i class="fas fa-arrow-alt-circle-right"></i>
+                <%= booking.end_date %>
+              </div>
             </div>
           </div>
         </div>
