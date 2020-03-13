@@ -1,6 +1,9 @@
 <div class="container">
 	<h1 class="p-2 pb-4">Mes produits</h1>
-
+  <% if @my_products.count == 0 %>
+    <div class="mt-5"><p>Vous n'avez pas encore de produit !</p>
+      <%= link_to "AJOUTER UNE ANNONCE", new_product_path, class: "btn btn-primary" %></div>
+  <% end %>
 	<% @my_products.each do |product| %>
 		  <div class="card-trip">
 		  	<div class="d-flex">
