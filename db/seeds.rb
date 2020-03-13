@@ -153,14 +153,16 @@ booking1_own = Booking.create({
     product_id: product6.id,
     user_id: user4.id,
     start_date: Date.new(2020, 3, 18),
-    end_date: Date.new(2020, 3, 20)
+    end_date: Date.new(2020, 3, 20),
+    status: "Confirmée"
 })
 
 booking2_own = Booking.create({
     product_id: product7.id,
     user_id: user4.id,
     start_date: Date.new(2020, 3, 18),
-    end_date: Date.new(2020, 3, 20)
+    end_date: Date.new(2020, 3, 20),
+    status: "Confirmée"
 })
 
 booking3_own = Booking.create({
@@ -174,14 +176,16 @@ booking4_other = Booking.create({
     product_id: product3.id,
     user_id: user1.id,
     start_date: Date.new(2020, 3, 20),
-    end_date: Date.new(2020, 3, 22)
+    end_date: Date.new(2020, 3, 22),
+    status: "Confirmée"
 })
 
 booking5_other = Booking.create({
     product_id: product4.id,
     user_id: user1.id,
     start_date: Date.new(2020, 3, 25),
-    end_date: Date.new(2020, 3, 27)
+    end_date: Date.new(2020, 3, 27),
+    status: "Confirmée"
 })
 
 puts "bookings generated for Alix user!"
@@ -208,5 +212,5 @@ review3 = Review.create({
 })
 
 
-
+puts "reviews generated"
 
