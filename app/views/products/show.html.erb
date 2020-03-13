@@ -93,45 +93,50 @@
         </a>
       </div>
     </div>
-
-
   </div>
-</div>
 
-<div id="hidden" data-price = "<%= @product.price%>" >
+  <div class="d-flex">
+    <div class="products-display">
+      <div class="mt-5">
+        <div class="bg-white p-3">
+          <h2 class="pb-4">
+          <%= pluralize @product.reviews.size, "évaluation" %>
+          </h2>
 
-</div>
-
-
-<div class="container">
-  <h2>
-    <%= pluralize @product.reviews.size, "évaluation" %>
-  </h2>
-
-  <div id="products">
-  <% if @product.reviews.blank? %>
-    Laissez la première évaluation de ce produit <%= @product.name %>
-  <% else %>
-    <% @product.reviews.each do |review| %>
-      <%= render 'reviews/show', review: review %>
-    <% end %>
-  <% end %>
-</div>
- <h2>
-  Votre évaluation du produit
-  </h2>
-  <div class="row">
-    <div class="col-xs-4">
-      <%= simple_form_for ([@product, @review]) do |f| %>
-        <%= f.input :content, label: "Comment décririez vous votre expérience de location?" %>
-        <%= f.input :rating, collection: (1..5).to_a, label: "Notez votre expérience de location" %>
-        <%= f.submit "Poster ma review",class: 'btn btn-primary' %>
-      <% end %>
+          <div>
+            <% if @product.reviews.blank? %>
+            Laissez la première évaluation de ce produit <%= @product.name %>
+            <% else %>
+            <% @product.reviews.each do |review| %>
+            <%= render 'reviews/show', review: review %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+        <div class="bg-white p-3 mt-5">
+          <h2>
+          Votre évaluation du produit
+          </h2>
+          <div class="col-xs-4">
+            <%= simple_form_for ([@product, @review]) do |f| %>
+              <%= f.input :content, label: "Comment décririez vous votre expérience de location?" %>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Notez votre expérience de location" %>
+              <%= f.submit "Poster ma review",class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
     </div>
+
+    
+
+        
+    
+    
+  </div>
+  <div id="hidden" data-price = "<%= @product.price%>" >
+
   </div>
 </div>
-
-
-
 
 
