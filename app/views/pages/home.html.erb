@@ -6,17 +6,19 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
-          placeholder: "Skis..chaussures.."
+          placeholder: "Skis, chaussures, ..."
         %>
         <%= text_field_tag :start_date,
           params[:star_date],
           class: "form-control",
-          id: "start_date"
+          id: "start_date",
+          placeholder: "Date de début"
         %>
         <%= text_field_tag :end_date,
           params[:end_date],
           class: "form-control",
-          id: "end_date"
+          id: "end_date",
+          placeholder: "Date de fin"
         %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
