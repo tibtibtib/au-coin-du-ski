@@ -65,7 +65,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     authorize @product
-    redirect_to(products_path)
+    redirect_to(pages_my_products_path)
   end
 
 private

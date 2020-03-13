@@ -22,11 +22,14 @@ const updatePriceOnDateClick = (date_button) => {
 };
 
 
-const start_date_input = document.getElementById('booking_start_date');
+const priceUpdate = () => {
+  const start_date_input = document.getElementById('booking_start_date');
 
-if (start_date_input) {
-  datePickerProduct();
-  updatePriceOnDateClick(start_date_input);
-}
+  if (start_date_input) {
+    datePickerProduct();
+    updatePriceOnDateClick(start_date_input);
+  };
+};
 
-export { updatePriceOnDateClick };
+
+export { priceUpdate };
