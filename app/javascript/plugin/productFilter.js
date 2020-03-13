@@ -1,16 +1,5 @@
-// const countDivs = (div) => {
-// 	const divsArray = [].slice.call(div);
-// 	let count = 0;
-// 	divsArray.forEach((a) => {
-// 		if (a.style.display !== "none") {
-// 			count++;
-// 		}
-// 	});
-// 	return count;
-// };
-
 const filtersProducts = () => {
-	if (document.getElementsByClassName("products-selector")[0]) {
+	if (document.getElementById("products-selector")) {
 		$("#product_category").change(function () {
 			document.querySelectorAll(".col-12").forEach((doc) => {
 				doc.style.display = "block";

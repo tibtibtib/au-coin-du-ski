@@ -29,11 +29,10 @@
 <div class="container">
   <div class="d-flex justify-content-end mt-2" id="products-selector">
     <p>Catégorie: </p>
-    <%= form_for Product.all.first do |p| %>
+    <%= simple_form_for Product.new do |p| %>
       <%= p.select :category,
         collection: Product::CATEGORIES,
-        prompt:'Catégorie',
-        class: "custom-select"
+        prompt:'Catégorie'
       %>
     <% end %>
   </div>
