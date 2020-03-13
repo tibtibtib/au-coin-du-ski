@@ -1,18 +1,18 @@
 class ReviewsController < ApplicationController
-  def new
-    @review = Review.new
-    authorize @review
-  end
+
 
   def create
     @review = Review.new(review_params)
-     authorize @review
+    authorize @review
+    @product = Product.find(params[:product_id])
+    @review.product = @product
     @review.user = current_user
     if @review.save
-      redirect_to new_review_path
+      redirect_to product_path(@product)
     else
       flash[:alert] = "Something went wrong."
-      render :new
+      @booking = Booking.new
+      render 'products/show'
     end
   end
 

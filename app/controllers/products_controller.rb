@@ -7,9 +7,10 @@ class ProductsController < ApplicationController
       @products = policy_scope(Product).search_by_name_and_description(params[:query])
       if params[:start_date].present? || params[:end_date].present?
         if params[:start_date].present? && params[:end_date].present?
+          dates = params[:start_date].split(" to ")
           sql = ":end_date >= start_date and end_date >= :start_date"
           @products = @products.reject do |product|
-            product.bookings.where(sql, start_date: params[:start_date], end_date: params[:end_date]).exists?
+            product.bookings.where(sql, start_date: dates[0], end_date: dates[1]).exists?
           end
         else
           redirect_to root_path
@@ -23,6 +24,8 @@ class ProductsController < ApplicationController
   def show
     @booking = Booking.new
     authorize @product
+    @review = Review.new
+    authorize @review
 
     if @product.geocoded?
       @marker = {
