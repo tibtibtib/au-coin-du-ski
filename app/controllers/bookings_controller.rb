@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy]
-  before_action :set_product, only: [:create]
+  before_action :set_product, only: [:create, :index]
   def show
     @product = @booking.product
     @seller = @booking.product.user
@@ -22,6 +22,11 @@ class BookingsController < ApplicationController
     else
       render 'products/show'
     end
+  end
+
+  def index
+    set_product
+    @bookings = policy_scope(Booking).where(product: @product)
   end
 
   def destroy
@@ -46,7 +51,7 @@ class BookingsController < ApplicationController
   end
 
   def set_booking
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:id]).where(user: current_user)
   end
 
   def set_product
